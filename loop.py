@@ -1,0 +1,68 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+import os
+import json
+import time
+import datetime
+
+
+PATTEN = [  # 图形矩阵，行建议最多不超过7行
+    [0, 1, 1, 0, 0, 0, 1, 1, 0, 0],
+    [1, 1, 1, 1, 0, 1, 1, 1, 1, 0],
+    [1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
+    [0, 1, 1, 1, 1, 1, 1, 1, 0, 0],
+    [0, 0, 1, 1, 1, 1, 1, 0, 0, 0],
+    [0, 0, 0, 1, 1, 1, 0, 0, 0, 0],
+    [0, 0, 0, 0, 1, 0, 0, 0, 0, 0]
+]
+
+
+def calculate_date(start, end):
+    # 计算日期相差天数
+    start_sec = time.mktime(time.strptime(start, '%Y-%m-%d'))
+    end_sec = time.mktime(time.strptime(end, '%Y-%m-%d'))
+
+    days = int((end_sec - start_sec) / (24 * 60 * 60))
+
+    return days
+
+
+def add_days(d, num):
+    # 日期递增
+    sec = num * 24 * 60 * 60
+    now_sec = time.mktime(time.strptime(d, '%Y-%m-%d')) + sec
+    return time.strftime("%Y-%m-%d", time.localtime(now_sec))
+
+
+def commit(flag):
+    if flag:
+        for n in range(49):
+            with open('./electrocardiogram.txt', 'a') as record:
+                record.write('.~^~')
+                record.close()
+                os.system('git commit -a -m \"HeartBeat\"')
+
+        with open('./electrocardiogram.txt', 'a') as record:
+            record.write('\n')
+            record.close()
+            os.system('git commit -a -m \"HeartBeat\"')
+
+
+PERIOD = len(PATTEN[0])  # 周期(图案列数)
+
+START_DATE = '2017-7-16'  # 开始日期, 码云和git显示不一样, 建议从最左上角开始
+now = datetime.datetime.now().strftime('%Y-%m-%d')
+
+while calculate_date(START_DATE, now) >= 0:
+    row = calculate_date(START_DATE, now) % 7
+    col = int(calculate_date(START_DATE, now) / 7) % PERIOD
+    commit(PATTEN[row][col])
+
+    now = add_days(now, -1)
+    os.system('timedatectl set-time ' + now)
+
+os.system('git pull && git push')
+
+
+
