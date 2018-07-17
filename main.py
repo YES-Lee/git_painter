@@ -5,16 +5,6 @@ import os
 import time
 import datetime
 
-PATTEN = [  # 图形矩阵，行建议最多不超过7行
-    [0, 1, 1, 0, 0, 0, 1, 1, 0, 0],
-    [1, 1, 1, 1, 0, 1, 1, 1, 1, 0],
-    [1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
-    [0, 1, 1, 1, 1, 1, 1, 1, 0, 0],
-    [0, 0, 1, 1, 1, 1, 1, 0, 0, 0],
-    [0, 0, 0, 1, 1, 1, 0, 0, 0, 0],
-    [0, 0, 0, 0, 1, 0, 0, 0, 0, 0]
-]
-
 
 def calculate_date(start, end):
     # 计算日期相差天数
@@ -42,6 +32,10 @@ def commit(flag):
 
     os.system('git pull && git push origin master')
 
+
+with open('./model.json') as f:  # 加载模型
+    PATTEN = f.read()
+    f.close()
 
 PERIOD = len(PATTEN[0])  # 周期(图案列数)
 
