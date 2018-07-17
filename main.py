@@ -18,7 +18,7 @@ def calculate_date(start, end):
 
 def commit(flag):
     if flag:
-        for n in range(39):  # 设置commit次数
+        for n in range(49):  # 设置commit次数
             with open('./record.txt', 'a') as record:
                 record.write('.')
                 record.close()

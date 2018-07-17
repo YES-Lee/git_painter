@@ -25,7 +25,7 @@ def add_days(d, num):
 
 def commit(flag):
     if flag:
-        for n in range(39):
+        for n in range(49):
             with open('./record.txt', 'a') as record:
                 record.write('.~^~')
                 record.close()
