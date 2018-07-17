@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-
+import json
 import os
 import time
 import datetime
@@ -44,7 +44,7 @@ def commit(flag):
 
 
 with open('./model.json') as f:  # 加载模型
-    PATTEN = f.read()
+    PATTEN = json.loads(f.read())
     f.close()
 
 PERIOD = len(PATTEN[0])  # 周期(图案列数)
