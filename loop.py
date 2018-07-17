@@ -27,7 +27,7 @@ def commit(flag):
     if flag:
         for n in range(49):
             with open('./record.txt', 'a') as record:
-                record.write('.~^~')
+                record.write('.')
                 record.close()
                 os.system('git commit -a -m \"HeartBeat\"')
 

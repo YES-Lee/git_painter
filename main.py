@@ -26,7 +26,7 @@ def commit(flag):
 
     else:  # 每天推一条
         with open('./record.txt', 'a') as record:
-            record.write('.~^~')
+            record.write('.')
             record.close()
             os.system('git commit -a -m \"HeartBeat\"')
 
