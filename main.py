@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-import json
 import os
 import time
 import datetime
@@ -29,13 +28,13 @@ def calculate_date(start, end):
 
 def commit(flag):
     if flag:
-        for n in range(1):
+        for n in range(39):  # 设置commit次数
             with open('./electrocardiogram.txt', 'a') as record:
                 record.write('.')
                 record.close()
                 os.system('git commit -a -m \"HeartBeat\"')
 
-    else:  # 每天必推一条
+    else:  # 每天推一条
         with open('./electrocardiogram.txt', 'a') as record:
             record.write('.~^~')
             record.close()
@@ -54,4 +53,4 @@ col = int(calculate_date(START_DATE, now) / 7) % PERIOD
 
 commit(PATTEN[row][col])
 
-# 00 12 * * * cd /home/git_heart && git pull && /usr/bin/python main.py && git push origin master
+# 00 12 * * * cd /home/git_heart && git pull && /usr/bin/python main.py

@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 
 import os
-import json
 import time
 import datetime
 
@@ -37,7 +36,7 @@ def add_days(d, num):
 
 def commit(flag):
     if flag:
-        for n in range(49):
+        for n in range(39):
             with open('./electrocardiogram.txt', 'a') as record:
                 record.write('.~^~')
                 record.close()
@@ -45,6 +44,12 @@ def commit(flag):
 
         with open('./electrocardiogram.txt', 'a') as record:
             record.write('\n')
+            record.close()
+            os.system('git commit -a -m \"HeartBeat\"')
+
+    else:
+        with open('./electrocardiogram.txt', 'a') as record:
+            record.write(now + '\n')
             record.close()
             os.system('git commit -a -m \"HeartBeat\"')
 
@@ -62,7 +67,7 @@ while calculate_date(START_DATE, now) >= 0:
     now = add_days(now, -1)
     os.system('timedatectl set-time ' + now)
 
-os.system('git pull && git push')
-
+#  复原时间
+os.system('timedatectl set-ntp 1 && timedatectl set-local-rtc 1')
 
 
