@@ -37,18 +37,18 @@ def add_days(d, num):
 def commit(flag):
     if flag:
         for n in range(39):
-            with open('./electrocardiogram.txt', 'a') as record:
+            with open('./record.txt', 'a') as record:
                 record.write('.~^~')
                 record.close()
                 os.system('git commit -a -m \"HeartBeat\"')
 
-        with open('./electrocardiogram.txt', 'a') as record:
+        with open('./record.txt', 'a') as record:
             record.write('\n')
             record.close()
             os.system('git commit -a -m \"HeartBeat\"')
 
     else:
-        with open('./electrocardiogram.txt', 'a') as record:
+        with open('./record.txt', 'a') as record:
             record.write(now + '\n')
             record.close()
             os.system('git commit -a -m \"HeartBeat\"')

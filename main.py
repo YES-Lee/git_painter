@@ -29,13 +29,13 @@ def calculate_date(start, end):
 def commit(flag):
     if flag:
         for n in range(39):  # 设置commit次数
-            with open('./electrocardiogram.txt', 'a') as record:
+            with open('./record.txt', 'a') as record:
                 record.write('.')
                 record.close()
                 os.system('git commit -a -m \"HeartBeat\"')
 
     else:  # 每天推一条
-        with open('./electrocardiogram.txt', 'a') as record:
+        with open('./record.txt', 'a') as record:
             record.write('.~^~')
             record.close()
             os.system('git commit -a -m \"HeartBeat\"')
