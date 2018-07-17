@@ -52,6 +52,8 @@ PERIOD = len(PATTEN[0])  # 周期(图案列数)
 START_DATE = '2017-7-16'  # 开始日期, 码云和git显示不一样, 建议从最左上角开始
 now = datetime.datetime.now().strftime('%Y-%m-%d')
 
+os.system('timedatectl set-ntp false') # 关闭时间自动同步
+
 while calculate_date(START_DATE, now) >= 0:
     row = calculate_date(START_DATE, now) % 7
     col = int(calculate_date(START_DATE, now) / 7) % PERIOD
