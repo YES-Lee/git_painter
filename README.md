@@ -1,24 +1,4 @@
-# [git_painter(https://github.com/YES-Lee/git_painter)](https://github.com/YES-Lee/git_painter)
-
-> 无聊的时候刷GitHub发现，好多大牛主页的贡献记录都是一片绿色，比如阮一峰老师的，如下图。
-> 于是也想把自己的全部刷成绿色，在折腾的过程中觉得就一片绿好像没意思，于是就有了如下效果。
-
-阮一峰的github
-![阮一峰的github](./static/ruanyifeng.png "阮一峰的github")
-
-我的github
-![我的的github](./static/heart.png "我的github")
-
-## 简介
-* 原理
-操作原理很简单，GitHub贡献记录显示是给予提交时间的，只需要修改系统时间之后再`commit`就OK啦
-
-* 功能
-1. 一个脚本自动搞定
-2. 方便的自定义形状
-3. 设置定时任务，每天自动`commit`&`push`
-
-> **重要:** 由于有一些坑，为节约大家时间，请看完教程再进行操作
+[详细介绍：https://blog.csdn.net/l598465252/article/details/81100127](https://blog.csdn.net/l598465252/article/details/81100127)
 
 ## 使用方法
 将该项目下载到本地，本地需要使用`Linux`操作系统，直接放服务器上也可以。
