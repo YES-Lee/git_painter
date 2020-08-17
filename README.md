@@ -1,4 +1,4 @@
-[详细介绍：https://blog.csdn.net/l598465252/article/details/81100127](https://blog.csdn.net/l598465252/article/details/81100127)
+[详细介绍：https://johnsonlee.site/post/trick-github/](https://johnsonlee.site/post/trick-github/)
 
 ## 使用方法
 将该项目下载到本地，本地需要使用`Linux`操作系统，直接放服务器上也可以。
